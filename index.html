@@ -107,8 +107,8 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Stripe JavaScript -->
-    <script src="https://js.stripe.com/v3/" defer></script>
+    <!-- Stripe JavaScript - Disabled for demo -->
+    <!-- <script src="https://js.stripe.com/v3/" defer></script> -->
     
     <!-- Custom Styles for Enhanced Luxury Feel -->
     <style>
@@ -830,40 +830,14 @@
         let cardElement;
 
         function initializeStripe() {
-            // Replace with your actual Stripe publishable key
-            const publishableKey = 'pk_test_YOUR_STRIPE_PUBLISHABLE_KEY_HERE';
+            // Demo mode - no real Stripe integration
+            console.log('Demo mode: Stripe initialization skipped');
             
-            if (publishableKey.includes('YOUR_STRIPE_PUBLISHABLE_KEY_HERE')) {
-                console.warn('Please update your Stripe publishable key in the script');
-                return;
+            // Show demo message in card element
+            const cardElement = document.getElementById('stripe-card-element');
+            if (cardElement) {
+                cardElement.innerHTML = '<div style="padding: 1rem; color: #FFA500; text-align: center; font-size: 0.9rem;">🎭 Demo Mode - No real payment required</div>';
             }
-            
-            stripe = Stripe(publishableKey);
-            elements = stripe.elements({
-                appearance: {
-                    theme: 'night',
-                    variables: {
-                        colorPrimary: '#FBBF24',
-                        colorBackground: '#1F2937',
-                        colorText: '#ffffff',
-                        fontFamily: 'Inter, sans-serif',
-                        borderRadius: '8px',
-                        spacingUnit: '6px',
-                    }
-                }
-            });
-
-            cardElement = elements.create('card');
-            cardElement.mount('#stripe-card-element');
-
-            cardElement.on('change', function(event) {
-                const displayError = document.getElementById('stripe-card-errors');
-                if (event.error) {
-                    displayError.textContent = event.error.message;
-                } else {
-                    displayError.textContent = '';
-                }
-            });
         }
 
         async function handlePayment(event) {
@@ -871,33 +845,15 @@
             
             const submitButton = document.getElementById('submit-payment');
             const originalText = submitButton.innerHTML;
-            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Processing...';
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Demo Processing...';
             submitButton.disabled = true;
 
-            const email = document.getElementById('email').value;
-            
-            if (!email) {
-                alert('Please enter your email address');
+            // Demo mode - simulate payment success
+            setTimeout(() => {
+                showSuccessMessage();
                 submitButton.innerHTML = originalText;
                 submitButton.disabled = false;
-                return;
-            }
-
-            try {
-                // In a real implementation, you would create a payment intent on your server
-                // For now, we'll simulate success
-                setTimeout(() => {
-                    showSuccessMessage();
-                    submitButton.innerHTML = originalText;
-                    submitButton.disabled = false;
-                }, 2000);
-                
-            } catch (error) {
-                console.error('Payment error:', error);
-                alert('Payment failed. Please try again.');
-                submitButton.innerHTML = originalText;
-                submitButton.disabled = false;
-            }
+            }, 2000);
         }
 
         function showSuccessMessage() {
@@ -908,8 +864,8 @@
                         <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse">
                             <i class="fas fa-check text-3xl text-white"></i>
                         </div>
-                        <h3 class="text-3xl font-bold text-gradient-gold mb-4">Welcome to the Elite Circle!</h3>
-                        <p class="text-gray-300 mb-6">Your subscription is now active. You'll receive Discord access instructions via email within 5 minutes.</p>
+                        <h3 class="text-3xl font-bold text-gradient-gold mb-4">Demo Complete! 🎭</h3>
+                        <p class="text-gray-300 mb-6">This is a demo landing page. In a real implementation, users would receive Discord access instructions via email.</p>
                         <div class="bg-gold-400/10 border border-gold-400/20 rounded-xl p-6 mb-6">
                             <h4 class="text-xl font-bold text-gold-400 mb-4">What's Next?</h4>
                             <ul class="text-left space-y-2 text-gray-300">
