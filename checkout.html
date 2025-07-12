@@ -256,73 +256,46 @@
                         <!-- Email -->
                         <div class="mb-6">
                             <label for="email" class="block text-gold-400 font-semibold mb-2">Email Address</label>
-                            <input type="email" id="email" value="demo@example.com" disabled
-                                   class="w-full px-4 py-3 bg-navy-800/60 backdrop-blur-sm border border-gray-600 rounded-lg text-gray-400 cursor-not-allowed">
+                            <input type="email" id="email" placeholder="your@email.com" required
+                                   class="w-full px-4 py-3 bg-navy-800/60 backdrop-blur-sm border border-gold-400/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all">
                             <p class="text-xs text-gray-400 mt-1">You'll receive Discord access instructions here</p>
+                        </div>
+                        
+                        <!-- Name -->
+                        <div class="mb-6">
+                            <label for="name" class="block text-gold-400 font-semibold mb-2">Full Name</label>
+                            <input type="text" id="name" placeholder="John Doe" required
+                                   class="w-full px-4 py-3 bg-navy-800/60 backdrop-blur-sm border border-gold-400/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all">
                         </div>
                         
                         <!-- Card Information -->
                         <div class="mb-6">
-                            <label class="block text-gold-400 font-semibold mb-3">Card Information</label>
+                            <label class="block text-gold-400 font-semibold mb-3">Card Information (Demo)</label>
                             
                             <!-- Card Number -->
                             <div class="mb-4">
-                                <input type="text" value="4242 4242 4242 4242" disabled
-                                       class="w-full px-4 py-3 bg-navy-800/60 backdrop-blur-sm border border-gray-600 rounded-lg text-gray-400 cursor-not-allowed"
-                                       placeholder="1234 1234 1234 1234">
+                                <input type="text" id="card-number" placeholder="4242 4242 4242 4242"
+                                       class="w-full px-4 py-3 bg-navy-800/60 backdrop-blur-sm border border-gold-400/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all">
                             </div>
                             
                             <!-- Expiry and CVC -->
                             <div class="grid grid-cols-2 gap-4 mb-4">
-                                <input type="text" value="12/25" disabled
-                                       class="px-4 py-3 bg-navy-800/60 backdrop-blur-sm border border-gray-600 rounded-lg text-gray-400 cursor-not-allowed"
-                                       placeholder="MM/YY">
-                                <input type="text" value="123" disabled
-                                       class="px-4 py-3 bg-navy-800/60 backdrop-blur-sm border border-gray-600 rounded-lg text-gray-400 cursor-not-allowed"
-                                       placeholder="CVC">
+                                <input type="text" id="expiry" placeholder="12/25"
+                                       class="px-4 py-3 bg-navy-800/60 backdrop-blur-sm border border-gold-400/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all">
+                                <input type="text" id="cvc" placeholder="123"
+                                       class="px-4 py-3 bg-navy-800/60 backdrop-blur-sm border border-gold-400/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-gold-400 focus:ring-2 focus:ring-gold-400/20 transition-all">
                             </div>
-                        </div>
-                        
-                        <!-- Billing Information -->
-                        <div class="mb-6">
-                            <label class="block text-gold-400 font-semibold mb-3">Billing Information</label>
-                            
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                                <input type="text" value="John" disabled
-                                       class="px-4 py-3 bg-navy-800/60 backdrop-blur-sm border border-gray-600 rounded-lg text-gray-400 cursor-not-allowed"
-                                       placeholder="First Name">
-                                <input type="text" value="Doe" disabled
-                                       class="px-4 py-3 bg-navy-800/60 backdrop-blur-sm border border-gray-600 rounded-lg text-gray-400 cursor-not-allowed"
-                                       placeholder="Last Name">
-                            </div>
-                            
-                            <div class="mb-4">
-                                <input type="text" value="123 Trading Street" disabled
-                                       class="w-full px-4 py-3 bg-navy-800/60 backdrop-blur-sm border border-gray-600 rounded-lg text-gray-400 cursor-not-allowed"
-                                       placeholder="Address">
-                            </div>
-                            
-                            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                                <input type="text" value="New York" disabled
-                                       class="px-4 py-3 bg-navy-800/60 backdrop-blur-sm border border-gray-600 rounded-lg text-gray-400 cursor-not-allowed"
-                                       placeholder="City">
-                                <input type="text" value="NY" disabled
-                                       class="px-4 py-3 bg-navy-800/60 backdrop-blur-sm border border-gray-600 rounded-lg text-gray-400 cursor-not-allowed"
-                                       placeholder="State">
-                                <input type="text" value="10001" disabled
-                                       class="px-4 py-3 bg-navy-800/60 backdrop-blur-sm border border-gray-600 rounded-lg text-gray-400 cursor-not-allowed"
-                                       placeholder="ZIP">
-                            </div>
+                            <div id="card-errors" class="text-red-400 text-sm"></div>
                         </div>
                         
                         <!-- Terms and Conditions -->
                         <div class="mb-6">
                             <label class="flex items-start space-x-3 cursor-pointer">
-                                <input type="checkbox" checked disabled
-                                       class="mt-1 w-4 h-4 text-gold-500 bg-navy-800 border-gray-600 rounded cursor-not-allowed">
+                                <input type="checkbox" id="terms" required
+                                       class="mt-1 w-4 h-4 text-gold-500 bg-navy-800 border-gold-400/20 rounded focus:ring-gold-400">
                                 <span class="text-sm text-gray-300">
                                     I agree to the <a href="#" class="text-gold-400 hover:text-gold-500">Terms of Service</a> and 
-                                    <a href="#" class="text-gold-400 hover:text-gold-500">Privacy Policy</a>. I understand this is a monthly subscription that can be cancelled anytime.
+                                    <a href="#" class="text-gold-400 hover:text-gold-500">Privacy Policy</a>. I understand this is a demo payment.
                                 </span>
                             </label>
                         </div>
@@ -332,7 +305,7 @@
                                 class="w-full bg-gradient-to-r from-gold-400 to-gold-500 hover:from-gold-500 hover:to-gold-600 text-navy-900 font-bold text-lg py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
                             <span id="button-text">
                                 <i class="fas fa-credit-card mr-2"></i>
-                                Complete Payment - $103.20
+                                Complete Demo Payment - $103.20
                             </span>
                         </button>
                         
@@ -399,6 +372,30 @@
         document.getElementById('checkout-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
+            // Get form values for validation
+            const email = document.getElementById('email').value;
+            const name = document.getElementById('name').value;
+            const cardNumber = document.getElementById('card-number').value;
+            const expiry = document.getElementById('expiry').value;
+            const cvc = document.getElementById('cvc').value;
+            const terms = document.getElementById('terms').checked;
+            
+            const errorDiv = document.getElementById('card-errors');
+            
+            // Basic validation
+            if (!email || !name || !cardNumber || !expiry || !cvc || !terms) {
+                errorDiv.textContent = 'Please fill in all fields and accept the terms';
+                return;
+            }
+            
+            if (!email.includes('@')) {
+                errorDiv.textContent = 'Please enter a valid email address';
+                return;
+            }
+            
+            // Clear errors
+            errorDiv.textContent = '';
+            
             // Show processing modal
             const modal = document.getElementById('processing-modal');
             modal.classList.remove('hidden');
@@ -417,38 +414,76 @@
                     
                     // Show success after a delay
                     setTimeout(() => {
-                        document.getElementById('processing-content').classList.add('hidden');
-                        document.getElementById('success-content').classList.remove('hidden');
-                        
-                        // Start countdown
-                        let countdown = 3;
-                        const countdownElement = document.getElementById('countdown');
-                        const countdownInterval = setInterval(() => {
-                            countdown--;
-                            countdownElement.textContent = countdown;
-                            
-                            if (countdown <= 0) {
-                                clearInterval(countdownInterval);
-                                // Redirect to Discord
-                                window.location.href = 'https://discord.gg/ZsRpyNrk';
-                            }
-                        }, 1000);
-                        
+                        showSuccessMessage(name, email);
                     }, 1000);
                 }
             }, 200);
         });
         
-        // Add some interactivity to disabled fields for demo purposes
-        document.addEventListener('DOMContentLoaded', function() {
-            const disabledInputs = document.querySelectorAll('input[disabled]');
-            disabledInputs.forEach(input => {
-                input.addEventListener('click', function() {
-                    // Show a tooltip or message that this is a demo
-                    console.log('This is a demo - fields are disabled for demonstration purposes');
-                });
-            });
-        });
+        function showSuccessMessage(name, email) {
+            const modal = document.getElementById('processing-modal');
+            modal.innerHTML = `
+                <div class="bg-charcoal-900/90 backdrop-blur-md border border-gold-400/20 rounded-xl p-8 max-w-lg mx-4 text-center">
+                    <div class="w-24 h-24 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-check text-4xl text-white"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold text-gradient-gold mb-4">Payment Successful! 🎉</h3>
+                    <p class="text-gray-300 mb-2">Welcome to Keeton's Elite Discord Community, <strong class="text-gold-400">${name}</strong>!</p>
+                    <p class="text-sm text-gray-400 mb-6">Confirmation sent to: ${email}</p>
+                    
+                    <div class="bg-gold-400/10 border border-gold-400/20 rounded-xl p-6 mb-6">
+                        <h4 class="text-xl font-bold text-gold-400 mb-4 flex items-center justify-center">
+                            <i class="fab fa-discord mr-2"></i>
+                            Join Discord Now
+                        </h4>
+                        <p class="text-gray-300 text-sm mb-4">Click the button below to join our exclusive Discord server:</p>
+                        <a href="https://discord.gg/ZsRpyNrk" target="_blank" 
+                           class="inline-block bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-bold text-lg px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 mb-4 w-full">
+                            <i class="fab fa-discord mr-2"></i>
+                            Join Keeton Trades Discord
+                        </a>
+                        <p class="text-xs text-gray-400">Or copy this invite link: <code class="text-gold-400">https://discord.gg/ZsRpyNrk</code></p>
+                    </div>
+                    
+                    <div class="bg-trust-blue-400/10 border border-trust-blue-400/20 rounded-xl p-4 mb-6">
+                        <h4 class="text-lg font-bold text-trust-blue-400 mb-3">What's Next?</h4>
+                        <ul class="text-left space-y-2 text-sm text-gray-300">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i>Join Discord using the link above</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i>Complete your Discord profile</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i>Introduce yourself in #welcome</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i>Start receiving daily signals in #signals</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i>Join live trading sessions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="text-xs text-gray-500 mb-4 p-3 bg-gray-800/50 rounded">
+                        <i class="fas fa-info-circle mr-1"></i> 
+                        Demo Mode: This is a demonstration. No actual payment was processed.
+                    </div>
+                    
+                    <button onclick="window.location.href='index.html'" class="bg-gradient-to-r from-gold-400 to-gold-500 hover:from-gold-500 hover:to-gold-600 text-navy-900 font-bold text-lg px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 mr-4">
+                        <i class="fas fa-home mr-2"></i>
+                        Back to Home
+                    </button>
+                    <button onclick="window.close()" class="bg-gray-600 hover:bg-gray-700 text-white font-bold text-lg px-8 py-3 rounded-lg transition-all duration-300">
+                        <i class="fas fa-times mr-2"></i>
+                        Close
+                    </button>
+                </div>
+            `;
+        }
+        
+        // Add gradient text styling
+        const style = document.createElement('style');
+        style.textContent = `
+            .text-gradient-gold {
+                background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html> 
