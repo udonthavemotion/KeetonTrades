@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Secure checkout for Keeton Trades Elite Discord Community">
+    <title>Checkout - Keeton Trades Elite Discord</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'navy': {
+                            900: '#0A0A0A',
+                            800: '#1F2937',
+                            700: '#374151',
+                            600: '#4B5563'
+                        },
+                        'charcoal': {
+                            900: '#111827',
+                            800: '#1F2937',
+                            700: '#374151'
+                        },
+                        'gold': {
+                            400: '#FBBF24',
+                            500: '#F59E0B',
+                            600: '#D97706',
+                            700: '#B45309'
+                        },
+                        'trust-blue': {
+                            400: '#60A5FA',
+                            500: '#3B82F6',
+                            600: '#2563EB',
+                            700: '#1D4ED8'
+                        }
+                    },
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .payment-processing {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .success-animation {
+            animation: successPop 0.6s ease-out;
+        }
+        
+        @keyframes successPop {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .loading-dots::after {
+            content: '';
+            animation: dots 2s infinite;
+        }
+        
+        @keyframes dots {
+            0%, 20% { content: ''; }
+            40% { content: '.'; }
+            60% { content: '..'; }
+            80%, 100% { content: '...'; }
+        }
+        
+        /* Modern background effects */
+        .checkout-hero {
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.95) 0%, rgba(17, 24, 39, 0.9) 100%);
+        }
+        
+        .floating-elements {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .card-glow {
+            box-shadow: 0 0 30px rgba(251, 191, 36, 0.15);
+        }
+        
+        .card-glow:hover {
+            box-shadow: 0 0 50px rgba(251, 191, 36, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-navy-900 text-gray-100 font-sans antialiased min-h-screen relative overflow-hidden">
+    <!-- Background Image -->
+    <div class="fixed inset-0 z-0">
+        <img src="Pictures/pexels-weekendplayer-187041.jpg" 
+             alt="Financial charts background" 
+             class="w-full h-full object-cover object-center">
+        <div class="absolute inset-0 checkout-hero"></div>
+    </div>
+    
+    <!-- Floating Decorative Elements -->
+    <div class="fixed top-20 left-10 w-20 h-20 bg-gradient-to-br from-gold-400/20 to-gold-500/20 rounded-full floating-elements"></div>
+    <div class="fixed top-40 right-20 w-16 h-16 bg-gradient-to-br from-trust-blue-400/20 to-trust-blue-500/20 rounded-full floating-elements" style="animation-delay: -2s;"></div>
+    <div class="fixed bottom-40 left-20 w-12 h-12 bg-gradient-to-br from-trust-teal-400/20 to-trust-teal-500/20 rounded-full floating-elements" style="animation-delay: -4s;"></div>
+
+    <!-- Header -->
+    <header class="bg-charcoal-900/80 backdrop-blur-md border-b border-gold-400/20 py-4 relative z-10">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+                    <div class="w-10 h-10 bg-gradient-to-br from-gold-400 to-gold-500 rounded-full flex items-center justify-center">
+                        <i class="fas fa-chart-line text-navy-900 text-lg"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-serif font-bold text-gradient-gold">Keeton Trades</h1>
+                        <p class="text-xs text-gray-400">Elite Discord Community</p>
+                    </div>
+                </a>
+                <div class="flex items-center space-x-2 text-sm text-gray-400">
+                    <i class="fas fa-lock text-trust-blue-400"></i>
+                    <span>Secure Checkout</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8 max-w-4xl relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Order Summary -->
+            <div class="order-2 lg:order-1">
+                <div class="glass-effect rounded-xl p-8 sticky top-8 card-glow">
+                    <h2 class="text-2xl font-serif font-bold mb-6 text-white">Order Summary</h2>
+                    
+                    <!-- Product Details -->
+                    <div class="bg-navy-800/60 backdrop-blur-sm rounded-lg p-6 mb-6 border border-gold-400/10">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-16 h-16 bg-gradient-to-br from-gold-400 to-gold-500 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg">
+                                <i class="fab fa-discord text-2xl text-navy-900"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-lg font-bold text-white mb-2">Elite Discord Community</h3>
+                                <p class="text-gray-300 text-sm mb-3">Monthly subscription to Keeton's exclusive trading community</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-trust-blue-500/20 text-trust-blue-400 px-2 py-1 rounded text-xs border border-trust-blue-400/20">Live Trading</span>
+                                    <span class="bg-gold-500/20 text-gold-400 px-2 py-1 rounded text-xs border border-gold-400/20">Premium Signals</span>
+                                    <span class="bg-trust-teal-500/20 text-trust-teal-400 px-2 py-1 rounded text-xs border border-trust-teal-400/20">24/7 Support</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pricing Breakdown -->
+                    <div class="space-y-3 mb-6">
+                        <div class="flex justify-between items-center py-2">
+                            <span class="text-gray-300">Monthly Subscription</span>
+                            <span class="text-white font-semibold">$100.00</span>
+                        </div>
+                        <div class="flex justify-between items-center py-2">
+                            <span class="text-gray-300">Processing Fee</span>
+                            <span class="text-white font-semibold">$3.20</span>
+                        </div>
+                        <hr class="border-gold-400/20">
+                        <div class="flex justify-between items-center py-2">
+                            <span class="text-lg font-bold text-white">Total</span>
+                            <span class="text-2xl font-bold text-gradient-gold">$103.20</span>
+                        </div>
+                    </div>
+                    
+                    <!-- What You Get -->
+                    <div class="bg-gold-400/10 border border-gold-400/20 rounded-lg p-4 backdrop-blur-sm">
+                        <h4 class="font-bold text-gold-400 mb-3 flex items-center">
+                            <i class="fas fa-check-circle mr-2"></i>
+                            What You Get:
+                        </h4>
+                        <ul class="space-y-2 text-sm text-gray-300">
+                            <li class="flex items-center"><i class="fas fa-arrow-right text-gold-400 mr-2 text-xs"></i>Daily trade signals (3-5 per day)</li>
+                            <li class="flex items-center"><i class="fas fa-arrow-right text-gold-400 mr-2 text-xs"></i>Live trading sessions</li>
+                            <li class="flex items-center"><i class="fas fa-arrow-right text-gold-400 mr-2 text-xs"></i>Weekly educational content</li>
+                            <li class="flex items-center"><i class="fas fa-arrow-right text-gold-400 mr-2 text-xs"></i>Direct access to Keeton</li>
+                            <li class="flex items-center"><i class="fas fa-arrow-right text-gold-400 mr-2 text-xs"></i>85% average win rate</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Trust Indicators -->
+                    <div class="mt-6 flex items-center justify-center space-x-4">
+                        <div class="flex items-center space-x-1 text-xs text-gray-400">
+                            <i class="fas fa-shield-alt text-trust-blue-400"></i>
+                            <span>Money-back guarantee</span>
+                        </div>
+                        <div class="flex items-center space-x-1 text-xs text-gray-400">
+                            <i class="fas fa-users text-gold-400"></i>
+                            <span>5000+ members</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Payment Form -->
+            <div class="order-1 lg:order-2">
+                <div class="glass-effect rounded-xl p-8 card-glow">
+                    <div class="mb-6">
+                        <h2 class="text-2xl font-serif font-bold text-white mb-2">Payment Details</h2>
+                        <p class="text-gray-300">Complete your subscription to join the elite community</p>
+                    </div>
+                    
+                    <!-- Demo Notice -->
+                    <div class="bg-trust-blue-500/20 border border-trust-blue-400/30 rounded-lg p-4 mb-6 backdrop-blur-sm">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-info-circle text-trust-blue-400 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-trust-blue-400">Demo Mode</h4>
+                                <p class="text-sm text-gray-300">This is a demonstration checkout. No real payment will be processed.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form id="checkout-form">
+                        <!-- Email -->
+                        <div class="mb-6">
+                            <label for="email" class="block text-gold-400 font-semibold mb-2">Email Address</label>
+                            <input type="email" id="email" value="demo@example.com" disabled
+                                   class="w-full px-4 py-3 bg-navy-800/60 backdrop-blur-sm border border-gray-600 rounded-lg text-gray-400 cursor-not-allowed">
+                            <p class="text-xs text-gray-400 mt-1">You'll receive Discord access instructions here</p>
+                        </div>
+                        
+                        <!-- Card Information -->
+                        <div class="mb-6">
+                            <label class="block text-gold-400 font-semibold mb-3">Card Information</label>
+                            
+                            <!-- Card Number -->
+                            <div class="mb-4">
+                                <input type="text" value="4242 4242 4242 4242" disabled
+                                       class="w-full px-4 py-3 bg-navy-800/60 backdrop-blur-sm border border-gray-600 rounded-lg text-gray-400 cursor-not-allowed"
+                                       placeholder="1234 1234 1234 1234">
+                            </div>
+                            
+                            <!-- Expiry and CVC -->
+                            <div class="grid grid-cols-2 gap-4 mb-4">
+                                <input type="text" value="12/25" disabled
+                                       class="px-4 py-3 bg-navy-800/60 backdrop-blur-sm border border-gray-600 rounded-lg text-gray-400 cursor-not-allowed"
+                                       placeholder="MM/YY">
+                                <input type="text" value="123" disabled
+                                       class="px-4 py-3 bg-navy-800/60 backdrop-blur-sm border border-gray-600 rounded-lg text-gray-400 cursor-not-allowed"
+                                       placeholder="CVC">
+                            </div>
+                        </div>
+                        
+                        <!-- Billing Information -->
+                        <div class="mb-6">
+                            <label class="block text-gold-400 font-semibold mb-3">Billing Information</label>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <input type="text" value="John" disabled
+                                       class="px-4 py-3 bg-navy-800/60 backdrop-blur-sm border border-gray-600 rounded-lg text-gray-400 cursor-not-allowed"
+                                       placeholder="First Name">
+                                <input type="text" value="Doe" disabled
+                                       class="px-4 py-3 bg-navy-800/60 backdrop-blur-sm border border-gray-600 rounded-lg text-gray-400 cursor-not-allowed"
+                                       placeholder="Last Name">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <input type="text" value="123 Trading Street" disabled
+                                       class="w-full px-4 py-3 bg-navy-800/60 backdrop-blur-sm border border-gray-600 rounded-lg text-gray-400 cursor-not-allowed"
+                                       placeholder="Address">
+                            </div>
+                            
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                <input type="text" value="New York" disabled
+                                       class="px-4 py-3 bg-navy-800/60 backdrop-blur-sm border border-gray-600 rounded-lg text-gray-400 cursor-not-allowed"
+                                       placeholder="City">
+                                <input type="text" value="NY" disabled
+                                       class="px-4 py-3 bg-navy-800/60 backdrop-blur-sm border border-gray-600 rounded-lg text-gray-400 cursor-not-allowed"
+                                       placeholder="State">
+                                <input type="text" value="10001" disabled
+                                       class="px-4 py-3 bg-navy-800/60 backdrop-blur-sm border border-gray-600 rounded-lg text-gray-400 cursor-not-allowed"
+                                       placeholder="ZIP">
+                            </div>
+                        </div>
+                        
+                        <!-- Terms and Conditions -->
+                        <div class="mb-6">
+                            <label class="flex items-start space-x-3 cursor-pointer">
+                                <input type="checkbox" checked disabled
+                                       class="mt-1 w-4 h-4 text-gold-500 bg-navy-800 border-gray-600 rounded cursor-not-allowed">
+                                <span class="text-sm text-gray-300">
+                                    I agree to the <a href="#" class="text-gold-400 hover:text-gold-500">Terms of Service</a> and 
+                                    <a href="#" class="text-gold-400 hover:text-gold-500">Privacy Policy</a>. I understand this is a monthly subscription that can be cancelled anytime.
+                                </span>
+                            </label>
+                        </div>
+                        
+                        <!-- Payment Button -->
+                        <button type="submit" id="pay-button"
+                                class="w-full bg-gradient-to-r from-gold-400 to-gold-500 hover:from-gold-500 hover:to-gold-600 text-navy-900 font-bold text-lg py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                            <span id="button-text">
+                                <i class="fas fa-credit-card mr-2"></i>
+                                Complete Payment - $103.20
+                            </span>
+                        </button>
+                        
+                        <!-- Security Notice -->
+                        <div class="mt-6 text-center">
+                            <div class="flex items-center justify-center space-x-4 text-gray-400 text-sm">
+                                <div class="flex items-center space-x-1">
+                                    <i class="fas fa-lock text-trust-blue-400"></i>
+                                    <span>256-bit SSL</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <i class="fab fa-cc-visa text-trust-blue-400"></i>
+                                    <i class="fab fa-cc-mastercard text-trust-blue-400"></i>
+                                    <i class="fab fa-cc-amex text-trust-blue-400"></i>
+                                    <i class="fab fa-cc-paypal text-trust-blue-400"></i>
+                                </div>
+                            </div>
+                            <p class="text-xs text-gray-400 mt-2">
+                                Powered by Stripe • Your payment information is secure and encrypted
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Processing Modal -->
+    <div id="processing-modal" class="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 hidden items-center justify-center">
+        <div class="bg-charcoal-900/90 backdrop-blur-md border border-gold-400/20 rounded-xl p-8 max-w-md mx-4 text-center">
+            <div id="processing-content">
+                <div class="w-20 h-20 bg-gradient-to-br from-gold-400 to-gold-500 rounded-full flex items-center justify-center mx-auto mb-6 payment-processing shadow-lg">
+                    <i class="fas fa-credit-card text-3xl text-navy-900"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-4">Processing Payment</h3>
+                <p class="text-gray-300 mb-4">Please wait while we process your payment<span class="loading-dots"></span></p>
+                <div class="w-full bg-navy-800/60 rounded-full h-2 mb-4">
+                    <div id="progress-bar" class="bg-gradient-to-r from-gold-400 to-gold-500 h-2 rounded-full transition-all duration-1000" style="width: 0%"></div>
+                </div>
+                <p class="text-xs text-gray-400">This may take a few seconds</p>
+            </div>
+            
+            <div id="success-content" class="hidden">
+                <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 success-animation shadow-lg">
+                    <i class="fas fa-check text-3xl text-white"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gradient-gold mb-4">Payment Successful!</h3>
+                <p class="text-gray-300 mb-6">Welcome to Keeton's Elite Discord Community! You're being redirected to Discord...</p>
+                <div class="bg-gold-400/10 border border-gold-400/20 rounded-lg p-4 mb-6 backdrop-blur-sm">
+                    <h4 class="font-bold text-gold-400 mb-2">Next Steps:</h4>
+                    <ul class="text-sm text-gray-300 space-y-1">
+                        <li>✓ Join the Discord server</li>
+                        <li>✓ Complete your profile</li>
+                        <li>✓ Introduce yourself</li>
+                        <li>✓ Start receiving signals</li>
+                    </ul>
+                </div>
+                <p class="text-xs text-gray-400">Redirecting in <span id="countdown">3</span> seconds...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('checkout-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show processing modal
+            const modal = document.getElementById('processing-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            // Animate progress bar
+            const progressBar = document.getElementById('progress-bar');
+            let progress = 0;
+            const progressInterval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress > 100) progress = 100;
+                progressBar.style.width = progress + '%';
+                
+                if (progress >= 100) {
+                    clearInterval(progressInterval);
+                    
+                    // Show success after a delay
+                    setTimeout(() => {
+                        document.getElementById('processing-content').classList.add('hidden');
+                        document.getElementById('success-content').classList.remove('hidden');
+                        
+                        // Start countdown
+                        let countdown = 3;
+                        const countdownElement = document.getElementById('countdown');
+                        const countdownInterval = setInterval(() => {
+                            countdown--;
+                            countdownElement.textContent = countdown;
+                            
+                            if (countdown <= 0) {
+                                clearInterval(countdownInterval);
+                                // Redirect to Discord
+                                window.location.href = 'https://discord.gg/ZsRpyNrk';
+                            }
+                        }, 1000);
+                        
+                    }, 1000);
+                }
+            }, 200);
+        });
+        
+        // Add some interactivity to disabled fields for demo purposes
+        document.addEventListener('DOMContentLoaded', function() {
+            const disabledInputs = document.querySelectorAll('input[disabled]');
+            disabledInputs.forEach(input => {
+                input.addEventListener('click', function() {
+                    // Show a tooltip or message that this is a demo
+                    console.log('This is a demo - fields are disabled for demonstration purposes');
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,54 @@
+{
+  "name": "keeton-trades-landing",
+  "version": "1.0.0",
+  "description": "Premium black-and-gold trading platform landing page with Stripe and Whop integration",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve -s . -l 3000",
+    "build": "echo 'No build process needed for static site'",
+    "dev": "live-server --port=3000 --open=index.html",
+    "deploy": "gh-pages -d .",
+    "test": "echo 'No tests specified' && exit 0",
+    "format": "prettier --write .",
+    "lint": "eslint assets/js/ --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/keeton-trades-landing.git"
+  },
+  "keywords": [
+    "trading",
+    "landing-page",
+    "stripe",
+    "whop",
+    "premium",
+    "black-and-gold",
+    "responsive",
+    "membership"
+  ],
+  "author": "Keeton Trades Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yourusername/keeton-trades-landing/issues"
+  },
+  "homepage": "https://yourusername.github.io/keeton-trades-landing",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "serve": "^14.2.1",
+    "gh-pages": "^6.0.0",
+    "prettier": "^3.0.0",
+    "eslint": "^8.50.0"
+  },
+  "dependencies": {
+    "chart.js": "^4.4.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
+} 
