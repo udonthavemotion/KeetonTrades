@@ -95,7 +95,7 @@ const APP_CONFIG = {
         twitter: 'https://twitter.com/keetontrades',
         linkedin: 'https://linkedin.com/company/keetontrades',
         telegram: 'https://t.me/keetontrades',
-        discord: 'https://discord.gg/keetontrades'
+        discord: 'https://discord.gg/kt3KkKxG'
     },
     
     // Feature toggles

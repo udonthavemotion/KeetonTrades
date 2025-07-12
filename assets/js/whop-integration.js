@@ -355,9 +355,9 @@ class CommunityManager {
         // In a real implementation, this would generate a Discord invite
         // based on the user's membership level
         const inviteLinks = {
-            starter: 'https://discord.gg/keeton-starter',
-            pro: 'https://discord.gg/keeton-pro',
-            elite: 'https://discord.gg/keeton-elite'
+                    starter: 'https://discord.gg/kt3KkKxG',
+        pro: 'https://discord.gg/kt3KkKxG',
+        elite: 'https://discord.gg/kt3KkKxG'
         };
 
         return inviteLinks[planName] || inviteLinks.starter;
